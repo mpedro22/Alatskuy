@@ -18,7 +18,7 @@ RUN apt-get -y update
 RUN ACCEPT_EULA=Y apt-get install -y msodbcsql18
 
 # Install any necessary dependencies
-RUN pip install fastapi uvicorn python-multipart python-jose[cryptography] passlib[bcrypt] pyodbc
+RUN pip install fastapi uvicorn python-multipart python-jose[cryptography] passlib[bcrypt] pyodbc requests httpx
 
 # Command to run the FastAPI server when the container starts
 CMD ["uvicorn", "pabrikkk:app", "--host", "0.0.0.0", "--port", "80"]

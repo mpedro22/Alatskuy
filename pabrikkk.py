@@ -230,7 +230,7 @@ async def register_user_no_integration(data : RegisterData):
 @app.post("/register/integration")
 async def register_user_with_integration(data : RegisterData):
     cursor = connection.cursor()
-    url = 'http://127.0.0.1:3003/daftar/student'
+    url = 'http://teachmeapi.dsc2b8fycmfsa5bp.eastus.azurecontainer.io/daftar/student'
     headers = {
         'accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -243,7 +243,7 @@ async def register_user_with_integration(data : RegisterData):
     }
     response = requests.post(url,headers=headers, params=travis)
     if response.status_code == 200:
-        url = 'http://127.0.0.1:3003/token'
+        url = 'http://teachmeapi.dsc2b8fycmfsa5bp.eastus.azurecontainer.io/token'
         headers = {
             'accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -594,7 +594,7 @@ async def rekomendasi(
 ):
         user=get_user(current_user.username)
         cursor=connection.cursor()
-        url = 'http://127.0.0.1:3003/rekomendasi'
+        url = 'http://teachmeapi.dsc2b8fycmfsa5bp.eastus.azurecontainer.io/rekomendasi/tutor'
         headers = {
             'accept': 'application/json',
             'Authorization': 'bearer ' + user.token,
@@ -637,7 +637,7 @@ async def appointment(
     tanggal:str
 ):
         user=get_user(current_user.username)
-        url = 'http://127.0.0.1:3003/makeappointment'
+        url = 'http://teachmeapi.dsc2b8fycmfsa5bp.eastus.azurecontainer.io/makeappointment'
         headers = {
             'accept': 'application/json',
             'Authorization': 'bearer ' + user.token,
